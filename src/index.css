@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #ca8a04;
+  --primary-color-hover: #e0c817;
+  --secondary-color: #001f3f;
+  --text-color: #333333;
+  --text-color-light: #ffffff;
+  --bg-color: #f8f9fa;
+  --gray-color: #6c757d;
+  --green-color: #28a745;
+  --green-color-hover: #218838;
+}
+
+*{
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+span,
+p {
+  cursor: default;
+}
+
+/* Animações suaves para todos os elementos interativos */
+a,
+button {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Animação do carrossel */
+#inicio {
+  transition: background-image 4s ease-in-out;
+}
+
+/* Animações de entrada */
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+/* Animação para cards de produtos */
+.product-card {
+  @apply transition-all duration-500 ease-in-out;
+}
+
+.product-card:hover {
+  @apply transform -translate-y-2 shadow-2xl;
+}
+
+/* Animação para ícones */
+.icon-hover {
+  @apply transition-transform duration-300 ease-in-out;
+}
+
+.icon-hover:hover {
+  @apply transform scale-125;
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.arrow{
+  transform: rotate(45deg)
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-20px) translateX(-20px) ;
+    opacity: 1;
+  }
+}
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animação para o botão de WhatsApp */
+.whatsapp-pulse {
+  animation: whatsappPulse 2s infinite;
+}
+
+@keyframes whatsappPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.focus-in-expand {
+  -webkit-animation: focus-in-expand 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    0.2s both;
+  animation: focus-in-expand 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+}
+
+@-webkit-keyframes focus-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes focus-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.logo-image {
+  animation: 1s alternate focus-in-expand;
+}
+.logo-text {
+  animation: 1s alternate focus-in-expand;
+}
+
+/* Animação para o header durante scroll */
+.header-scroll {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.header-scroll.scrolled {
+  @apply shadow-lg bg-white/90 backdrop-blur-sm;
+}
+
+.filter-invert {
+  filter: invert(100%);
+}
+
+/* Animação para os elementos do formulário */
+.form-input {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.form-input:focus {
+  @apply transform scale-[1.02];
+}
+
+.map{
+  height: 400px; 
+  width: 100%;
+}
+
+.socials{
+  right: 2%;
+  position: absolute;
+}
+
+.buttonNavCustom{
+  margin-right: 45px;
+}
