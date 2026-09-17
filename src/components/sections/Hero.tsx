@@ -15,7 +15,7 @@ export default function Hero() {
 
   return (
     <section id="INICIO" className="relative min-h-screen flex items-end pt-32 pb-24 md:pb-28 overflow-hidden">
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
           alt="Barras de aço carbono estocadas no pátio da Aços Copec, em Camaçari"
@@ -30,7 +30,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="relative z-10 container mx-auto px-4">
         <div className="max-w-3xl">
           <h1
             className="font-bold text-white text-5xl sm:text-6xl md:text-[4.5rem] leading-[0.95] tracking-tight fade-in-up"
@@ -64,7 +64,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 hidden sm:block bg-black/40 backdrop-blur-sm border-t border-white/10">
+      <div className="absolute bottom-0 left-0 right-0 z-10 hidden sm:block bg-black/40 backdrop-blur-sm border-t border-white/10">
         <div className="container mx-auto px-4 flex divide-x divide-white/15 text-white/90 text-sm md:text-base font-medium">
           {MATERIALS.map((material) => (
             <div key={material} className="flex-1 text-center py-4 transition-colors duration-300 hover:text-[var(--primary-color)]">
