@@ -21,7 +21,7 @@ export default function VideoHighlight() {
           </Link>
         </Reveal>
 
-        <Reveal delay={150} className="order-1 md:order-2">
+        <Reveal delay={250} className="order-1 md:order-2">
           <Link
             to="/video"
             aria-label="Assistir vídeo dos produtos da Aços Copec"

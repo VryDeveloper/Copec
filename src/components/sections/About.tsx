@@ -18,7 +18,7 @@ export default function About() {
         </Reveal>
         <div className="grid md:grid-cols-2 gap-14 items-center">
           <div className="space-y-8">
-            <Reveal delay={100}>
+            <Reveal delay={150}>
               <p className="text-lg text-gray-600 leading-relaxed max-w-[62ch]">
                 A Aços Copec é referência no fornecimento de materiais para metalurgia e siderurgia — aço carbono,
                 inox, alumínio, bronze e nylon técnico de alta qualidade. Nossa missão é ser parceira no crescimento
@@ -28,7 +28,7 @@ export default function About() {
             </Reveal>
             <div className="grid grid-cols-2 gap-x-4 gap-y-4">
               {HIGHLIGHTS.map(({ icon: Icon, title, desc }, index) => (
-                <Reveal key={title} delay={150 + index * 100}>
+                <Reveal key={title} delay={300 + index * 150}>
                   <div className="group flex items-start gap-3 rounded-lg p-3 -m-3 transition-all duration-300 hover:bg-white hover:shadow-md hover:-translate-y-0.5">
                     <Icon className="text-[var(--primary-color)] h-6 w-6 shrink-0 mt-0.5 transition-transform duration-300 group-hover:scale-110" />
                     <div>
@@ -40,7 +40,7 @@ export default function About() {
               ))}
             </div>
           </div>
-          <Reveal delay={200} className="rounded-lg overflow-hidden shadow-xl">
+          <Reveal delay={250} className="rounded-lg overflow-hidden shadow-xl">
             <img
               src={facilityPhoto}
               alt="Fachada das instalações da Aços Copec em Camaçari, Bahia"

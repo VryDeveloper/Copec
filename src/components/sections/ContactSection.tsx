@@ -33,12 +33,12 @@ export default function ContactSection() {
           <h2 className="font-bold text-4xl md:text-5xl text-center mb-14 text-white">Entre em contato</h2>
         </Reveal>
         <div className="grid md:grid-cols-2 gap-14">
-          <Reveal delay={100}>
+          <Reveal delay={150}>
             <Contato />
           </Reveal>
           <div className="space-y-8 text-white">
             {CONTACT_ITEMS.map(({ icon: Icon, title, content }, index) => (
-              <Reveal key={title} delay={150 + index * 100}>
+              <Reveal key={title} delay={300 + index * 150}>
                 <div className="group flex items-start gap-4">
                   <Icon className="text-[var(--primary-color)] h-6 w-6 mt-1 shrink-0 transition-transform duration-300 group-hover:scale-110" />
                   <div>

@@ -8,7 +8,7 @@ export default function LocationSection() {
         <Reveal className="text-center">
           <h2 className="font-bold text-4xl md:text-5xl text-[var(--secondary-color)] mb-12">Onde estamos</h2>
         </Reveal>
-        <Reveal delay={150} className="max-w-4xl mx-auto h-96 rounded-lg shadow-lg overflow-hidden">
+        <Reveal delay={250} className="max-w-4xl mx-auto h-96 rounded-lg shadow-lg overflow-hidden">
           <Mapa />
         </Reveal>
       </div>
