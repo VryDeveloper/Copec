@@ -1,81 +1,45 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useLoadScript } from '@react-google-maps/api';
+// Coordenadas da empresa
+const LAT = -12.690850621303637;
+const LNG = -38.343762814515536;
 
-// Estilos do mapa
-const mapContainerStyle = {
-  width: '100%',
-  height: '100%',
-};
+// Área ao redor do ponto (para o zoom do mapa incorporado)
+const LAT_OFFSET = 0.004;
+const LNG_OFFSET = 0.008;
 
-// Coordenadas do centro do mapa
-const center = {
-  lat: -12.690850621303637,
-  lng: -38.343762814515536,
-};
-
-// Opções do mapa
-const options = {
-  zoomControl: true,
-  mapTypeControl: false,
-  streetViewControl: false,
-};
+const bbox = [LNG - LNG_OFFSET, LAT - LAT_OFFSET, LNG + LNG_OFFSET, LAT + LAT_OFFSET].join(',');
+const embedUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${LAT},${LNG}`;
+const osmLink = `https://www.openstreetmap.org/?mlat=${LAT}&mlon=${LNG}#map=16/${LAT}/${LNG}`;
+const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${LAT},${LNG}`;
 
 const Map = () => {
-  const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
-  });
-
-  const mapRef = useRef(null);
-  const [map, setMap] = useState(null);
-
-  useEffect(() => {
-    if (!isLoaded || !window.google) return;
-
-    async function initMap() {
-      try {
-        // Importa as bibliotecas necessárias
-        const { Map } = await window.google.maps.importLibrary("maps");
-        const { AdvancedMarkerElement } = await window.google.maps.importLibrary("marker");
-
-        // Cria o mapa
-        const mapInstance = new Map(document.getElementById("map"), {
-          center,
-          zoom: 15,
-          mapId: '4504f8b37365c3d0', // Substitua pelo seu Map ID, se necessário
-        });
-
-        setMap(mapInstance);
-
-        // Adiciona um Advanced Marker ao mapa
-        new AdvancedMarkerElement({
-          map: mapInstance,
-          position: center,
-          title: "Localização da Empresa",
-        });
-      } catch (error) {
-        console.error("Erro ao carregar o mapa:", error);
-      }
-    }
-
-    initMap();
-  }, [isLoaded]);
-
-  if (loadError) {
-    return (
-      <div className="w-full h-full flex items-center justify-center bg-gray-100 text-gray-500">
-        Erro ao carregar o mapa
+  return (
+    <div className="relative w-full h-full">
+      <iframe
+        title="Localização da Aços Copec no mapa"
+        src={embedUrl}
+        className="w-full h-full border-0"
+        loading="lazy"
+      />
+      <div className="absolute bottom-3 left-3 flex gap-2 text-xs font-medium">
+        <a
+          href={osmLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-white/95 text-[var(--secondary-color)] px-3 py-1.5 rounded-full shadow hover:bg-white transition-colors duration-300"
+        >
+          Ver mapa ampliado
+        </a>
+        <a
+          href={googleMapsLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-white/95 text-[var(--secondary-color)] px-3 py-1.5 rounded-full shadow hover:bg-white transition-colors duration-300"
+        >
+          Abrir no Google Maps
+        </a>
       </div>
-    );
-  }
-  if (!isLoaded) {
-    return (
-      <div className="w-full h-full flex items-center justify-center bg-gray-100 text-gray-500">
-        Carregando mapa...
-      </div>
-    );
-  }
-
-  return <div id="map" style={mapContainerStyle}></div>;
+    </div>
+  );
 };
 
 export default Map;
