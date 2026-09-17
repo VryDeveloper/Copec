@@ -4,7 +4,7 @@ import { useLoadScript } from '@react-google-maps/api';
 // Estilos do mapa
 const mapContainerStyle = {
   width: '100%',
-  height: '400px',
+  height: '100%',
 };
 
 // Coordenadas do centro do mapa
@@ -60,8 +60,20 @@ const Map = () => {
     initMap();
   }, [isLoaded]);
 
-  if (loadError) return <div>Erro ao carregar o mapa</div>;
-  if (!isLoaded) return <div>Carregando mapa...</div>;
+  if (loadError) {
+    return (
+      <div className="w-full h-full flex items-center justify-center bg-gray-100 text-gray-500">
+        Erro ao carregar o mapa
+      </div>
+    );
+  }
+  if (!isLoaded) {
+    return (
+      <div className="w-full h-full flex items-center justify-center bg-gray-100 text-gray-500">
+        Carregando mapa...
+      </div>
+    );
+  }
 
   return <div id="map" style={mapContainerStyle}></div>;
 };

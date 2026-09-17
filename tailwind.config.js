@@ -4,8 +4,23 @@ export default {
   theme: {
     extend: {
       fontSize: {
-        '2.3xl': '1.25rem', 
-        '2.5xl': '1.50rem', 
+        '2.3xl': '1.25rem',
+        '2.5xl': '1.50rem',
+      },
+      fontFamily: {
+        display: ['"Big Shoulders Display"', 'sans-serif'],
+        sans: ['Barlow', 'system-ui', 'sans-serif'],
+      },
+      colors: {
+        steel: {
+          50: '#f4f6f8',
+          100: '#e4e9ee',
+          200: '#c9d3dc',
+          400: '#7c8b9c',
+          600: '#465262',
+          800: '#232b35',
+          900: '#161b21',
+        },
       },
     },
   },

@@ -18,6 +18,29 @@
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-family: 'Barlow', system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: '"Big Shoulders Display"', 'Big Shoulders Display', sans-serif;
+  letter-spacing: -0.01em;
+}
+
 h1,
 h2,
 h3,
@@ -32,46 +55,12 @@ button {
   @apply transition-all duration-300 ease-in-out;
 }
 
-/* Animação do carrossel */
-#inicio {
-  transition: background-image 4s ease-in-out;
-}
-
-/* Animações de entrada */
+/* Animação de entrada do hero */
 .fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
   opacity: 0;
 }
 
-.fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
-  opacity: 0;
-}
-
-.slide-in-right {
-  animation: slideInRight 0.8s ease-out forwards;
-  opacity: 0;
-}
-
-/* Animação para cards de produtos */
-.product-card {
-  @apply transition-all duration-500 ease-in-out;
-}
-
-.product-card:hover {
-  @apply transform -translate-y-2 shadow-2xl;
-}
-
-/* Animação para ícones */
-.icon-hover {
-  @apply transition-transform duration-300 ease-in-out;
-}
-
-.icon-hover:hover {
-  @apply transform scale-125;
-}
-
-/* Keyframes */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -82,41 +71,19 @@ button {
     transform: translateY(0);
   }
 }
-.arrow{
-  transform: rotate(45deg)
-}
+
 @keyframes bounce {
   0%, 100% {
     transform: translateY(0);
     opacity: 0.6;
   }
   50% {
-    transform: translateY(-20px) translateX(-20px) ;
+    transform: translateY(-20px) translateX(-20px);
     opacity: 1;
   }
 }
 .animate-bounce {
   animation: bounce 2s infinite;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 
 /* Animação para o botão de WhatsApp */
@@ -136,6 +103,7 @@ button {
   }
 }
 
+/* Entrada única da logo (focus-in) */
 .focus-in-expand {
   -webkit-animation: focus-in-expand 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     0.2s both;
@@ -176,15 +144,6 @@ button {
   animation: 1s alternate focus-in-expand;
 }
 
-/* Animação para o header durante scroll */
-.header-scroll {
-  @apply transition-all duration-300 ease-in-out;
-}
-
-.header-scroll.scrolled {
-  @apply shadow-lg bg-white/90 backdrop-blur-sm;
-}
-
 .filter-invert {
   filter: invert(100%);
 }
@@ -196,18 +155,4 @@ button {
 
 .form-input:focus {
   @apply transform scale-[1.02];
-}
-
-.map{
-  height: 400px; 
-  width: 100%;
-}
-
-.socials{
-  right: 2%;
-  position: absolute;
-}
-
-.buttonNavCustom{
-  margin-right: 150px;
 }
