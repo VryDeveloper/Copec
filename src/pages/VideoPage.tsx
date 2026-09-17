@@ -5,9 +5,9 @@ import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function VideoPage() {
   usePageMeta({
-    title: 'Vídeo institucional | Aços Copec',
+    title: 'Vídeo dos produtos | Aços Copec',
     description:
-      'Assista ao vídeo institucional da Aços Copec e conheça o pátio, o estoque de aço carbono, inox e alumínio, e como preparamos pedidos sob medida em Camaçari, BA.',
+      'Assista ao vídeo dos nossos produtos e conheça o pátio, o estoque de aço carbono, inox e alumínio, e como preparamos pedidos sob medida em Camaçari, BA.',
   });
 
   return (
@@ -22,7 +22,7 @@ export default function VideoPage() {
             Voltar para a página inicial
           </Link>
           <h1 className="font-bold text-4xl md:text-5xl text-white max-w-3xl">
-            Vídeo institucional Aços Copec
+            Vídeo dos nossos produtos
           </h1>
         </div>
       </div>
@@ -44,10 +44,10 @@ export default function VideoPage() {
 
           <div className="mt-10 max-w-[65ch]">
             <p className="text-lg text-gray-600 leading-relaxed">
-              Neste vídeo, mostramos como funciona o dia a dia da Aços Copec: o pátio de estocagem de aço carbono,
-              inox e alumínio, a organização do material por bitola e liga, e o processo de corte, dobra e
-              tratamento térmico que preparamos sob medida para clientes da metalurgia, siderurgia, indústria
-              náutica e automotiva no Polo Industrial de Camaçari.
+              Neste vídeo, mostramos de perto os nossos produtos: o pátio de estocagem de aço carbono, inox e
+              alumínio, a organização do material por bitola e liga, e o processo de corte, dobra e tratamento
+              térmico que preparamos sob medida para clientes da metalurgia, siderurgia, indústria náutica e
+              automotiva no Polo Industrial de Camaçari.
             </p>
             <Link
               to="/#contato"

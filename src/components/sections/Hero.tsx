@@ -1,11 +1,20 @@
 import { useEffect, useState } from 'react';
 import { ChevronRight } from 'lucide-react';
-import heroImage from '../../assets/images/acoscarbono.jpg';
+import heroImage1 from '../../assets/images/acoscarbono.jpg';
+import heroImage2 from '../../assets/images/acosCopecFrente.jpg';
 
 const MATERIALS = ['Aço carbono', 'Inox', 'Alumínio', 'Nylon técnico'];
 
+const HERO_SLIDES = [
+  { src: heroImage1, alt: 'Barras de aço carbono estocadas no pátio da Aços Copec, em Camaçari' },
+  { src: heroImage2, alt: 'Fachada das instalações da Aços Copec, em Camaçari' },
+];
+
+const SLIDE_INTERVAL_MS = 5000;
+
 export default function Hero() {
   const [showArrow, setShowArrow] = useState(true);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => setShowArrow(window.scrollY <= 100);
@@ -13,14 +22,26 @@ export default function Hero() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, SLIDE_INTERVAL_MS);
+    return () => clearInterval(interval);
+  }, [currentSlide]);
+
   return (
     <section id="INICIO" className="relative min-h-screen flex items-end pt-32 pb-24 md:pb-28 overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="Barras de aço carbono estocadas no pátio da Aços Copec, em Camaçari"
-          className="w-full h-full object-cover animate-hero-zoom"
-        />
+        {HERO_SLIDES.map((slide, index) => (
+          <img
+            key={slide.src}
+            src={slide.src}
+            alt={slide.alt}
+            className={`absolute inset-0 w-full h-full object-cover animate-hero-zoom transition-opacity duration-[1500ms] ease-in-out ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        ))}
         <div
           className="absolute inset-0"
           style={{
@@ -63,6 +84,22 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      {HERO_SLIDES.length > 1 && (
+        <div className="absolute z-10 bottom-28 sm:bottom-32 right-4 sm:right-8 flex gap-2">
+          {HERO_SLIDES.map((slide, index) => (
+            <button
+              key={slide.src}
+              type="button"
+              aria-label={`Mostrar imagem ${index + 1}`}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                index === currentSlide ? 'bg-[var(--primary-color)] w-6' : 'bg-white/50 w-2 hover:bg-white/80'
+              }`}
+            />
+          ))}
+        </div>
+      )}
 
       <div className="absolute bottom-0 left-0 right-0 z-10 hidden sm:block bg-black/40 backdrop-blur-sm border-t border-white/10">
         <div className="container mx-auto px-4 flex divide-x divide-white/15 text-white/90 text-sm md:text-base font-medium">

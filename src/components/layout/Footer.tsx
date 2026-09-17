@@ -6,7 +6,7 @@ const QUICK_LINKS = [
   { label: 'Início', to: '/#INICIO' },
   { label: 'Sobre', to: '/#SOBRE' },
   { label: 'Produtos', to: '/#PRODUTOS' },
-  { label: 'Vídeo institucional', to: '/video' },
+  { label: 'Vídeo dos produtos', to: '/video' },
   { label: 'Contato', to: '/#contato' },
 ];
 
