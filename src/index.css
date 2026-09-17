@@ -29,18 +29,6 @@
   }
 }
 
-body {
-  font-family: 'Barlow', system-ui, sans-serif;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: '"Big Shoulders Display"', 'Big Shoulders Display', sans-serif;
-  letter-spacing: -0.01em;
-}
-
 h1,
 h2,
 h3,
@@ -86,6 +74,19 @@ button {
   animation: bounce 2s infinite;
 }
 
+/* Zoom lento e contínuo na foto do hero, para dar vida sem chamar atenção demais */
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+.animate-hero-zoom {
+  animation: heroZoom 20s ease-in-out infinite alternate;
+}
+
 /* Animação para o botão de WhatsApp */
 .whatsapp-pulse {
   animation: whatsappPulse 2s infinite;
@@ -100,6 +101,24 @@ button {
   }
   100% {
     box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Halo suave no botão de play do vídeo em destaque */
+.play-pulse {
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+  animation: playPulse 2.5s ease-out infinite;
+}
+
+@keyframes playPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
   }
 }
 

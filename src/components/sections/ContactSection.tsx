@@ -1,5 +1,6 @@
 import { Mail, MapPin, MessageSquare, Phone } from 'lucide-react';
 import Contato from '../ContactForm';
+import Reveal from '../Reveal';
 
 const CONTACT_ITEMS = [
   {
@@ -28,24 +29,28 @@ export default function ContactSection() {
   return (
     <section id="contato" className="py-24 bg-gradient-to-b from-[#082c5c] to-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="font-display font-extrabold text-4xl md:text-5xl text-center mb-14 text-white">
-          Entre em contato
-        </h2>
+        <Reveal>
+          <h2 className="font-bold text-4xl md:text-5xl text-center mb-14 text-white">Entre em contato</h2>
+        </Reveal>
         <div className="grid md:grid-cols-2 gap-14">
-          <Contato />
+          <Reveal delay={100}>
+            <Contato />
+          </Reveal>
           <div className="space-y-8 text-white">
-            {CONTACT_ITEMS.map(({ icon: Icon, title, content }) => (
-              <div key={title} className="flex items-start gap-4">
-                <Icon className="text-[var(--primary-color)] h-6 w-6 mt-1 shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-1">{title}</h3>
-                  {Array.isArray(content) ? (
-                    content.map((item) => <p key={item}>{item}</p>)
-                  ) : (
-                    <p>{content}</p>
-                  )}
+            {CONTACT_ITEMS.map(({ icon: Icon, title, content }, index) => (
+              <Reveal key={title} delay={150 + index * 100}>
+                <div className="group flex items-start gap-4">
+                  <Icon className="text-[var(--primary-color)] h-6 w-6 mt-1 shrink-0 transition-transform duration-300 group-hover:scale-110" />
+                  <div>
+                    <h3 className="font-semibold mb-1">{title}</h3>
+                    {Array.isArray(content) ? (
+                      content.map((item) => <p key={item}>{item}</p>)
+                    ) : (
+                      <p>{content}</p>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

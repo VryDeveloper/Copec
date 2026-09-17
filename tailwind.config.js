@@ -7,10 +7,6 @@ export default {
         '2.3xl': '1.25rem',
         '2.5xl': '1.50rem',
       },
-      fontFamily: {
-        display: ['"Big Shoulders Display"', 'sans-serif'],
-        sans: ['Barlow', 'system-ui', 'sans-serif'],
-      },
       colors: {
         steel: {
           50: '#f4f6f8',

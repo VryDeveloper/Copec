@@ -56,7 +56,7 @@ export function ProductCarousel({
               {/* Content Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                 <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
-                  <h3 className="font-display font-extrabold text-3xl md:text-4xl text-white mb-3">
+                  <h3 className="font-bold text-3xl md:text-4xl text-white mb-3">
                     {product.title}
                   </h3>
                   <p className="text-lg md:text-xl text-gray-200 max-w-2xl">

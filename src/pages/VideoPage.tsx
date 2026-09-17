@@ -21,7 +21,7 @@ export default function VideoPage() {
             <ChevronLeft className="h-4 w-4" />
             Voltar para a página inicial
           </Link>
-          <h1 className="font-display font-extrabold text-4xl md:text-5xl text-white max-w-3xl">
+          <h1 className="font-bold text-4xl md:text-5xl text-white max-w-3xl">
             Vídeo institucional Aços Copec
           </h1>
         </div>

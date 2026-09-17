@@ -8,7 +8,7 @@ const Logo = ({ dark = false }) => {
         alt="Aços Copec"
         className={`logo-image h-9 w-9 transition-transform duration-300 hover:scale-110 ${dark ? 'filter-invert' : ''}`}
       />
-      <span className="logo-text text-3xl font-display font-bold tracking-tight bg-gradient-to-r from-[#EA9900] to-[#f7a905] bg-clip-text text-transparent">
+      <span className="logo-text text-3xl font-bold bg-gradient-to-r from-[#EA9900] to-[#f7a905] bg-clip-text text-transparent">
         Aços Copec
       </span>
     </div>

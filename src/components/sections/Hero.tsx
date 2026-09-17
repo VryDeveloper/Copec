@@ -14,20 +14,26 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="INICIO" className="relative min-h-screen flex items-end pt-32 pb-24 md:pb-28">
-      <div className="absolute inset-0 -z-10 overflow-hidden">
+    <section id="INICIO" className="relative min-h-screen flex items-end pt-32 pb-24 md:pb-28 overflow-hidden">
+      <div className="absolute inset-0 -z-10">
         <img
           src={heroImage}
           alt="Barras de aço carbono estocadas no pátio da Aços Copec, em Camaçari"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover animate-hero-zoom"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#001f3f] via-[#001f3f]/85 to-black/40" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(to bottom, rgba(0,31,63,0.15) 0%, rgba(0,31,63,0.45) 55%, rgba(0,31,63,0.82) 100%)',
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-4">
         <div className="max-w-3xl">
           <h1
-            className="font-display font-extrabold text-white text-5xl sm:text-6xl md:text-[4.5rem] leading-[0.95] tracking-tight fade-in-up"
+            className="font-bold text-white text-5xl sm:text-6xl md:text-[4.5rem] leading-[0.95] tracking-tight fade-in-up"
             style={{ animationDelay: '0.15s' }}
           >
             Aço e materiais industriais prontos para sua produção
@@ -43,14 +49,14 @@ export default function Hero() {
           <div className="flex flex-wrap gap-4 fade-in-up" style={{ animationDelay: '0.65s' }}>
             <a
               href="#PRODUTOS"
-              className="inline-flex items-center gap-2 bg-[var(--primary-color)] text-white px-8 py-3.5 rounded-full text-lg font-semibold hover:bg-[var(--primary-color-hover)] transition-colors duration-300"
+              className="inline-flex items-center gap-2 bg-[var(--primary-color)] text-white px-8 py-3.5 rounded-full text-lg font-semibold hover:bg-[var(--primary-color-hover)] hover:scale-105 transition-all duration-300"
             >
               Conheça nossos produtos
               <ChevronRight className="h-5 w-5" />
             </a>
             <a
               href="#contato"
-              className="inline-flex items-center gap-2 border border-white/40 text-white px-8 py-3.5 rounded-full text-lg font-semibold hover:bg-white/10 transition-colors duration-300"
+              className="inline-flex items-center gap-2 border border-white/40 text-white px-8 py-3.5 rounded-full text-lg font-semibold hover:bg-white/10 hover:scale-105 transition-all duration-300"
             >
               Solicitar orçamento
             </a>
@@ -61,7 +67,7 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 hidden sm:block bg-black/40 backdrop-blur-sm border-t border-white/10">
         <div className="container mx-auto px-4 flex divide-x divide-white/15 text-white/90 text-sm md:text-base font-medium">
           {MATERIALS.map((material) => (
-            <div key={material} className="flex-1 text-center py-4">
+            <div key={material} className="flex-1 text-center py-4 transition-colors duration-300 hover:text-[var(--primary-color)]">
               {material}
             </div>
           ))}
