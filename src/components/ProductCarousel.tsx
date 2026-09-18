@@ -43,7 +43,7 @@ export function ProductCarousel({
           {products.map((product, index) => (
             <div
               key={index}
-              className="rounded-full absolute inset-0 w-full h-full transition-transform duration-500 ease-out"
+              className="absolute inset-0 w-full h-full transition-transform duration-500 ease-out"
               style={{
                 transform: `translateX(${100 * (index - currentSlide)}%)`,
               }}
@@ -56,7 +56,7 @@ export function ProductCarousel({
               {/* Content Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                 <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
-                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                  <h3 className="font-bold text-3xl md:text-4xl text-white mb-3">
                     {product.title}
                   </h3>
                   <p className="text-lg md:text-xl text-gray-200 max-w-2xl">
@@ -90,10 +90,10 @@ export function ProductCarousel({
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              className={`h-2 rounded-full transition-all duration-300 ${
                 currentSlide === index
-                  ? 'bg-white w-4'
-                  : 'bg-white/50 hover:bg-white/80'
+                  ? 'bg-[var(--primary-color)] w-6'
+                  : 'bg-white/50 w-2 hover:bg-white/80'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
